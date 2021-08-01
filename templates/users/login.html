@@ -1,0 +1,42 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Login</h3>
+   <hr>
+   <form action="" method="post" novalidate class="shadow p-5">
+    {% csrf_token %}
+  <div class="mb-3">
+     <label for="id_usernameoremail" class="form-label">Email Or Username</label>
+     <input type="text" name="usernameoremail" class="form-control" id="id_usernameoremail" />
+    </div>
+    <div class="mb-3">
+     <label for="id_password" class="form-label">Password</label>
+     <input type="password" name="password" class="form-control" id="id_password">
+    </div>
+    <a class="text-decoration-none" href="{% url 'password_reset' %}">Forgot Password ?</a> <br>
+    <input type="submit" class="btn btn-primary mt-4" value="Login">
+    <br>
+    <div class="text-center text-primary fw-bold">New to ShoppinglyX ? <a href="{% url 'registration' %}"
+       class="text-danger">Create an Account</a> </div>
+       <div class="row">
+         <div class=" mx-auto social-container my-2 order-md-1">
+          <a class="btn btn-primary text-white border-0 rounded font-weight-bold " href="{% provider_login_url 'facebook' method='js_sdk' %}">Login with Facebook</a>
+          <a class="btn btn-danger text-white border-0 rounded font-weight-bold" href="{% provider_login_url 'google' %}">Login with Google</a>
+       
+         </div>
+   </form>
+   
+   </div>
+  </div>
+ </div>
+</div>
+
+</div>
+{% endblock main-content %}

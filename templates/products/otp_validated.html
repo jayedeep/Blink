@@ -1,0 +1,19 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block title %}OTP Validation{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>Your Order is Created</h3>
+   <hr>
+  <div class="mb-3">
+    <p>Your Order is successfully created! Please Cancel it If it was not done by You!</p>
+    </div>
+    
+    <a href="{% url 'userorders' %}" class="btn btn-primary my-4 d-flex justify-content-center">See Your Orders</a>
+    <br>
+    </div>
+ </div>
+</div>
+{% endblock main-content %}
